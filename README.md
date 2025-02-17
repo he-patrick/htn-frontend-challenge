@@ -28,7 +28,7 @@ htn-frontend-challenge
 
 ## Tech Stack
 - Framework: Next.js, React.js
-- UI Libraries: shadcn-ui, lucide-react
+- UI Libraries: TailwindCSS, shadcn-ui, lucide-react
 
 ## Authentication
 - Username: hacker
