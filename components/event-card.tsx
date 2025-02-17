@@ -1,9 +1,22 @@
 import Link from "next/link"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { CalendarIcon, Clock, Users, ExternalLink } from "lucide-react"
+import {
+  CalendarIcon,
+  Clock,
+  Users,
+  ExternalLink,
+} from "lucide-react"
 import type { TEvent } from "@/types/event"
+import { cn } from "@/lib/utils"
 
 const eventTypeColors = {
   workshop: "bg-primary text-primary-foreground",
@@ -11,7 +24,13 @@ const eventTypeColors = {
   tech_talk: "bg-accent text-accent-foreground",
 }
 
-export default function EventCard({ event, isLoggedIn }: { event: TEvent; isLoggedIn: boolean }) {
+export default function EventCard({
+  event,
+  isLoggedIn,
+}: {
+  event: TEvent
+  isLoggedIn: boolean
+}) {
   const formatDate = (timestamp: number) => {
     return new Date(timestamp).toLocaleString("en-US", {
       month: "short",
@@ -26,7 +45,9 @@ export default function EventCard({ event, isLoggedIn }: { event: TEvent; isLogg
     <Card className="flex flex-col h-full hover:shadow-lg transition-shadow duration-200 overflow-hidden group">
       <CardHeader className="relative">
         <div className="flex justify-between items-start mb-2">
-          <Badge variant="secondary">{event.event_type.replace("_", " ")}</Badge>
+          <Badge className={cn(eventTypeColors[event.event_type])}>
+            {event.event_type.replace("_", " ")}
+          </Badge>
           {event.permission === "private" && <Badge variant="outline">Private</Badge>}
         </div>
         <CardTitle className="text-xl mb-2">{event.name}</CardTitle>
@@ -64,4 +85,3 @@ export default function EventCard({ event, isLoggedIn }: { event: TEvent; isLogg
     </Card>
   )
 }
-
