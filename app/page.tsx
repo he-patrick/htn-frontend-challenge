@@ -17,6 +17,17 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+    const storedLogin = localStorage.getItem("isLoggedIn")
+    if (storedLogin === "true") {
+      setIsLoggedIn(true)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("isLoggedIn", isLoggedIn.toString())
+  }, [isLoggedIn])
+
+  useEffect(() => {
     fetch("https://api.hackthenorth.com/v3/events")
       .then((res) => res.json())
       .then((data: TEvent[]) => {
