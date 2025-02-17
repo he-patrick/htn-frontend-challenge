@@ -1,7 +1,7 @@
 # Hack the North Frontend Challenge
 
 ## Setup Instructions
-`npm install --legacy-peer-deps`
+`npm install --legacy-peer-deps` </br>
 `npm run dev`
 
 ## Project Structure
@@ -25,6 +25,10 @@ htn-frontend-challenge
 |--tsconfig.json
 |--next.config.js
 ```
+
+## Tech Stack
+- Framework: Next.js, React.js
+- UI Libraries: shadcn-ui, lucide-react
 
 ## Authentication
 - Username: hacker
